@@ -15,4 +15,5 @@
 ## Team Members
 
 ### Solyne Lenaerts
+### Petya Hristoforova
 ### Emma Lutsen
