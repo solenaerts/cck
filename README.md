@@ -17,3 +17,6 @@
 ### Solyne Lenaerts
 ### Petya Hristoforova
 ### Emma Lutsen
+
+## Hidden code challenge
+- Digit #2 (Petya): open a workshop page, then open the browser console.
