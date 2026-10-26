@@ -4,40 +4,49 @@ import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const team = await getCollection("team");
-  return team.map((member) => ({
-    params: { id: member.id },
-    props: { member },
-  }));
+    const team = await getCollection("team");
+    return team.map((member) => ({
+        params: { id: member.id },
+        props: { member },
+    }));
 }
 
 const { member } = Astro.props;
 const { name, pic } = member.data;
 const { Content } = await render(member);
-
 ---
 
 <Markdown>
-  <div slot="top">
-    <a href="/#team">Team</a>
-    <h2><span>{name}</span></h2>
-  </div>
-  <Content />
-  <div slot="sidebar" class="profile">
-    <Image width="300" height="300" src={pic} alt="" class="image" />
-  </div>
+    <div slot="top">
+        <a href="/#team">Team</a>
+        <h2><span>{name}</span></h2>
+    </div>
+    <p class="code">The forth digit of the code is 4</p>
+    <Content />
+    <div slot="sidebar" class="profile">
+        <Image width="300" height="300" src={pic} alt="" class="image" />
+    </div>
 </Markdown>
 
 <style>
-  a {
-    display: block;
-    margin-bottom: var(--sp-m);
-  }
+    a {
+        display: block;
+        margin-bottom: var(--sp-m);
+    }
 
-  .profile {
-    display: flex;
-    flex-flow: column;
-    align-items: end;
-    gap: var(--sp-xs);
-  }
+    .profile {
+        display: flex;
+        flex-flow: column;
+        align-items: end;
+        gap: var(--sp-xs);
+    }
+
+    .code {
+        color: var(--color-background);
+    }
+
+    .code::selection {
+        color: var(--color-black);
+        background-color: var(--color-primary);
+    }
 </style>
