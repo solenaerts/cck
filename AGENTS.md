@@ -1,10 +1,18 @@
-## Project
-The site is for a new creative coding club in Kortrijk, Belgium: Creative Code Kortrijk. This is for people who are interested in creative coding.
+#CCK Agents
 
-## Stack & constraints
+## Project
+This site is a website for a new Creative Coding Club in Kortrijk, Belgium: Creative Code Kortrijk (CCK). 
+It is made for people interesed in Creative Coding workshops and news.
+
+## Stack & Constraints
+Using
 - Astro
-- Content collections
-- no CSS framework
+- Content Collection
+- rem over px
+
+Not using
+- CSS Framework
 
 Don't change the md files
-Don't add content on your own.
+
+Don't add content on your own
