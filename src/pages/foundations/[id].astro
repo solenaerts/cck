@@ -12,12 +12,13 @@ export async function getStaticPaths() {
 
 const { foundation } = Astro.props;
 const { Content } = await render(foundation);
+const hasDigit = foundation.id === "experiment";
 
 ---
 
 <Markdown>
   <a href="/#foundations">Foundations</a>
-  <h2><span>{foundation.data.title}</span></h2>
+  <h2 data-digit={hasDigit ? "digit #1 = 1" : undefined}><span>{foundation.data.title}</span></h2>
   <Content />
 </Markdown>
 
@@ -25,5 +26,34 @@ const { Content } = await render(foundation);
   a {
     display: block;
     margin-bottom: var(--sp-m);
+  }
+
+  h2[data-digit] {
+    position: relative;
+  }
+
+  h2[data-digit]::after {
+    content: attr(data-digit);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-black);
+    border-radius: 0.3rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  h2[data-digit]:hover::after {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    h2[data-digit]::after {
+      transition: none;
+    }
   }
 </style>
