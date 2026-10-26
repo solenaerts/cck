@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 import { getCollection, render } from "astro:content";
 
 const news = (await getCollection("news")).sort(
-  (a,b) => b.data.date.getTime() - a.data.date.getTime(),
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
 const items = await Promise.all(
   news.map(async (item) => ({ item, Content: (await render(item)).Content })),
@@ -14,7 +14,7 @@ const items = await Promise.all(
 <Base title="News">
   <div class="container">
     <h2><span>News</span></h2>
-    <p class="code">The third digit of the code is 3</p>
+    <p class="code" hidden>The third digit of the code is 3</p>
     <ul>
       {
         items.map(({ item, Content }) => (
@@ -34,6 +34,16 @@ const items = await Promise.all(
     </ul>
   </div>
 </Base>
+
+<script>
+  const title = document.querySelector(".container h2");
+  const code = document.querySelector<HTMLElement>(".code");
+  let clicks = 0;
+  title?.addEventListener("click", () => {
+    clicks++;
+    if (clicks === 3 && code) code.hidden = false;
+  });
+</script>
 
 <style>
   ul > li:not(:last-child) {
