@@ -1,4 +1,4 @@
-#CCK Agents
+# CCK Agents
 
 ## Project
 This site is a website for a new Creative Coding Club in Kortrijk, Belgium: Creative Code Kortrijk (CCK). 
