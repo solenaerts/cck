@@ -11,3 +11,9 @@
 ### Illustrations
 
 <https://pixels.market/illustrations/doodledo?c=technology>
+
+## Team Members
+
+### Solyne Lenaerts
+### Petya Hristoforova
+### Emma Lutsen
