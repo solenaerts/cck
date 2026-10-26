@@ -15,3 +15,4 @@
 ## Team Members
 
 ### Solyne Lenaerts
+### Emma Lutsen
